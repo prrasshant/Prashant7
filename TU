@@ -1,0 +1,115 @@
+US1 – View Migrated Clients	User has access to the Order Entry (OE) persona. At least one client qualifies as a migrated client.	"1. Sign in to the OE persona.
+2. Open the home page.
+3. Locate the Migrated Clients option and displayed client count.
+4. Select the Migrated Clients hyperlink."	Migrated Clients option and client count are displayed. Selecting the hyperlink opens the Migrated Clients page.	Not Run
+US1 – Migrated Client Qualification	Test client profiles are available with different migration-qualification combinations.	"1. Prepare/identify a client with: Client Profile in Client Central, Migration Client flag = Yes, GV Oracle Customer Number populated, Billing Method populated, and at least one PE received with the GV Oracle Customer Number.
+2. Open Migrated Clients and search for the qualifying client.
+3. Repeat using test clients missing one or more of the minimum criteria.
+4. Compare the displayed results."	A client meeting all minimum criteria appears under Migrated Clients. A client that does not meet the minimum criteria is not shown as a qualifying migrated client.	Not Run
+US1 – Migration Client Data Setup and Control Panel Visibility	Authorized API access and/or the supported client import file are available. A test migration client and Control Panel access are available.	"1. Set the Migration Client flag to Yes/No through the supported API and verify the saved value.
+2. Populate the migration flag and client fields through the supported client creation/import file and verify the imported values.
+3. Verify the relevant client fields: GV Oracle Customer Number, Billing Method, SAP Mandant, Nexo OOID / Passport OOID and SFDC Account ID.
+4. Open Control Panel and navigate to SAP object mapping.
+5. Search for the migration client's product entities."	The migration flag and supplied fields are saved correctly through the supported method. Migration client product entities are visible in Control Panel for SAP object mapping. Any unresolved mandatory-field qualification rules are confirmed with the product owner.	Not Run
+US2 – Migrated Clients Page, Tabs and Breadcrumbs	User has OE persona access and test records exist for both pending and performed actions.	"1. Navigate from the OE home page to Migrated Clients.
+2. Verify breadcrumb navigation and current location.
+3. Verify Actions Pending and Actions Performed tabs.
+4. Verify Actions Pending is selected by default.
+5. Switch between both tabs."	Migrated Clients page opens with correct breadcrumb navigation. Both tabs are available and Actions Pending is the default tab.	Not Run
+US2 – Pending and Performed Records, Table and Client Expansion	Test client/bid records exist with no submitted action and with Confirm Changes already submitted. Client records include product and country information.	"1. Open Actions Pending and verify records with no action submitted.
+2. Open Actions Performed and verify records submitted using Confirm Changes.
+3. Verify table columns: Client Name, Oracle Customer Number, Products and Countries.
+4. Expand a client row to inspect product and country details."	Unsubmitted clients/bids appear in Actions Pending; submitted clients/bids appear in Actions Performed. The table shows the specified columns and client rows expose expandable product/country information.	Not Run
+US2 – Search, Filters and Pagination	Enough migrated client records exist to test searching, filtering and multiple pages.	"1. Search using an available client identifier/name.
+2. Apply available filters to refine the result set.
+3. Clear the search and filters.
+4. Navigate to the next page and back using pagination controls.
+5. Verify the displayed records after each action."	Search and filters return the matching client records. Clearing criteria restores the applicable list. Pagination navigates through the result set without missing or duplicating records.	Not Run
+US3 – Open Individual Client Details from Both Tabs	At least one client is available in each tab.	"1. Open Actions Pending and select a client.
+2. Verify the individual client details page and breadcrumb.
+3. Return to Migrated Clients.
+4. Open Actions Performed and select a client.
+5. Verify the individual client details page and breadcrumb."	The selected client details page opens from either tab when the client is listed there. Breadcrumb navigation correctly identifies the current location.	Not Run
+US3 – Client Details and View More	A migrated client profile contains populated basic, identifier and external-system fields, including additional details.	"1. Open an individual client details page.
+2. Verify basic client information: Name and Oracle Customer Number.
+3. Verify system identifiers: GV CID, Passport OOID and Nexo OOID.
+4. Verify external system links/fields: SFDC Account ID and SAP Mandant.
+5. Verify Billing Method.
+6. Select View More and inspect additional client information."	The client details section displays the fields specified in the user story where populated. View More displays additional client information.	Not Run
+US3 – All Bids, Search and Pending/Performed Movement	The selected client has multiple associated bids, including a pending bid and a bid eligible for submission.	"1. Open the client details page.
+2. Verify All Bids displays Bid ID, Products and Countries.
+3. Search/filter for a specific bid.
+4. For a pending client/bid, make an eligible change and submit using Confirm Changes.
+5. Return to Migrated Clients and verify the record under Actions Performed.
+6. For another pending client/bid, do not submit Confirm Changes and verify it remains under Actions Pending.
+7. Verify the same client and bid are not shown in both tabs simultaneously."	All Bids displays the required information and supports search/filtering. Submitted client/bids appear in Actions Performed; unsubmitted client/bids remain in Actions Pending. The same client and bid do not appear in both tabs simultaneously.	Not Run
+US4 – Bid Details, Country/PE Selection and Status Updates	A selected bid contains multiple countries and product entities with blank initial statuses.	"1. Open a specific bid from the client's bid list.
+2. Verify bid details page and complete breadcrumb navigation.
+3. Verify client details context and that all PE statuses are blank by default.
+4. Use Quick Select and Clear Selection.
+5. Use Select All Countries and apply Live, then repeat with a separate test bid using Implementation.
+6. Expand a country and apply a country-level status.
+7. Update an individual PE using its Edit Status/action.
+8. Verify the PE table columns: Product Entity Code, Product Entity, Description, Level, Life Cycle Status, Status and Action."	Bid details show the associated countries and PEs with the required context. PE statuses are blank by default. Quick Select/Clear Selection, Select All Countries, country-level selection and individual PE status updates work as specified. The PE table displays all listed columns.	Not Run
+US4 – Confirm Changes, Status Summary and Editing	A bid has multiple PEs. Test data can represent blank, all-Live, all-Implementation and mixed statuses. Required client data is available.	"1. Leave one PE status blank and verify Confirm Changes state.
+2. Assign Live or Implementation to every PE.
+3. Verify Confirm Changes becomes available when all required selections and mandatory data are present.
+4. Submit the changes.
+5. Verify country summary for all-Live, all-Implementation and mixed statuses, including total PE, Live and Implementation counts.
+6. Verify status can be edited before submission in Actions Pending.
+7. Open Actions Performed and verify previously submitted status can be edited as permitted."	Confirm Changes is unavailable while any PE status is blank and becomes available once all PEs have a status and the agreed mandatory data is present. Country summary displays Live for all-Live, Implementation for all-Implementation, and counts for mixed status. Editing works in Actions Pending and Actions Performed as specified.	Not Run
+US4 – New Scope/PEs, Planview Visibility and Work ID Restriction	An existing bid has already been submitted. Test PEs can be marked Live or Implementation, and PV persona access is available.	"1. Add a new scope or PE to the same previously submitted bid.
+2. Open Migrated Clients and verify the bid reappears in Actions Pending.
+3. Mark a PE as Implementation, submit the required action and verify it is visible in the PV persona for Work ID mapping.
+4. Mark a different PE as Live, submit the required action and verify it does not appear in the PV persona.
+5. Add a Work ID to an Implementation PE in the PV persona.
+6. Attempt to move that PE back to Live."	A bid with newly added scope/PEs reappears in Actions Pending. Implementation PEs are visible in the PV persona for Work ID mapping. Live PEs are not sent to or displayed in the PV persona. A PE with a Work ID cannot be moved back to Live.	Not Run
+US4 – Actions Performed, Release to Siebel and Shared PE Across Bids	A bid is available in Actions Performed with modified changes. Two bids associated with the same PE are available for the shared-PE scenario.	"1. Open Actions Performed and verify Confirm Changes is activated when there are modified changes.
+2. Verify Release to Siebel appears in Actions Performed and is not displayed in Actions Pending.
+3. For two bids sharing the same PE, confirm Bid 1.
+4. Open Bid 2 while it is still in Actions Pending and attempt to change the shared PE status; also verify Bid 2 can still be confirmed.
+5. Move both bids to Actions Performed.
+6. Verify PE status becomes editable and observe the impact on associated records."	Confirm Changes is activated when modified changes exist. Release to Siebel is displayed in Actions Performed, not Actions Pending. After Bid 1 is confirmed, the shared PE status cannot be changed from Bid 2's Actions Pending view, but Bid 2 can still be confirmed. Once both bids are in Actions Performed, PE status is editable and a change impacts all associated records as stated in the user story.	Not Run
+PV US1 – Migrated Bids Dashboard Tile	User has access to the Planview persona. At least one migrated bid is available; the expected migrated-bid count can be verified.	"1. Sign in and open the Planview dashboard.
+2. Verify the Migrated Bids metric tile appears alongside Additional Business Bids and Items to Review.
+3. Compare the displayed count with the available migrated-bid records.
+4. Select the View link."	The Migrated Bids tile is displayed in the same visual style as the existing metric tiles. It shows the correct total count, and View navigates to the Migrated Bids list page.	Not Run
+PV US2 – Migrated Bids List and Client Navigation	User has Planview access and migrated bids exist for multiple clients, with different bid counts, products and countries.	"1. Open Planview > Migrated Bids.
+2. Verify the page title and breadcrumb.
+3. Verify Filters and Search are available.
+4. Verify sortable columns: Client Name, Oracle Customer Number, No of Bids, Products and Countries.
+5. Check truncated Oracle Customer Number header hover, product/country overflow indicators, and configurable pagination (default 10).
+6. Search/filter and sort the list; navigate between pages.
+7. Select a Client Name."	The list shows the required columns and correct client-level bid counts. Sorting, search, filters, hover text, overflow indicators and pagination work. Selecting a client opens that client's bid detail page.	Not Run
+PV US3 – Client Bid Details and All Bids	A migrated client has multiple bids and associated products/countries, including a client with more than two products or countries where overflow can be checked.	"1. Open a client from the Migrated Bids list.
+2. Verify breadcrumb Client Orders > [Client Name] and the page title.
+3. Verify the Client Details card shows Name, Oracle Customer Number, Products and Country.
+4. Check that the first two products/countries are shown and +N more exposes the remaining values.
+5. Verify the All Bids section, Filters and Search.
+6. Verify sortable Bid ID, Products and Countries columns and their overflow indicators.
+7. Select a Bid ID."	The selected client's identity and summary data are correct. All Bids displays the client's bids with the required sortable columns, filters and search. Selecting a Bid ID opens its Bid Detail page.	Not Run
+PV US4 – Bid Detail, Country Groups and Product Entity Table	A migrated bid exists with product entities across multiple countries and with populated entity attributes/statuses.	"1. Open a bid from the client's All Bids table.
+2. Verify breadcrumb Planview > Migrated Bids > [Client Name] > Migrated Bids and the Bid ID page title.
+3. Verify the Bid Details card shows Client Name, Oracle Customer Number, Products and Country, including +N more where applicable.
+4. Expand and collapse the country sections using each chevron.
+5. Verify each country table includes selection checkbox, clickable Product Entity Code, Status badge, Product Entity name, Description, Level, Life Cycle Status and per-row Group Actions.
+6. Verify Filters, Search, the message 'Select one or more PEs below', and configurable pagination (default 20) with total count and page controls."	The correct bid details are displayed. Product entities are grouped by country and each group can be expanded/collapsed. The table displays the specified fields and controls; search, filters and pagination operate on the records.	Not Run
+PV US5 – Product Entity Selection and Group Actions	A bid contains multiple product entities. User has permission to perform product entity actions.	"1. Open a bid detail page and expand a country section.
+2. Verify a checkbox is available on each product entity row and a select-all checkbox is available in the table header.
+3. Select and deselect individual rows; use select-all to select/deselect all visible rows.
+4. Verify the Map to Project and Mark as Live bulk buttons remain visible and are disabled when no rows are selected.
+5. Open a row's Group Actions dropdown and verify Map to Project and Mark as Live options.
+6. Select each per-row option in the applicable test data and verify the action is applied to that row only."	Row selection and select-all behaviour work as specified. The guidance message and bulk buttons are displayed; bulk buttons are disabled with no selection. Each row's Group Actions menu offers both actions and applies the chosen action to the selected row.	Not Run
+PV US5 – Map Selected Product Entities to Project	A bid contains one or more selectable product entities and a relevant Work ID is available for the bid.	"1. Select one or more product entity rows.
+2. Select Map to Project from the bulk action buttons.
+3. Verify the Map to Project modal opens and displays the relevant Work ID in the Work ID dropdown.
+4. Select Map and verify the modal closes and the selected entities are mapped to the specified project.
+5. Repeat and select Cancel; verify no changes are saved.
+6. Repeat and close the modal using the X icon; verify no changes are saved.
+7. Verify the specified mapping flow sends the PE codes to PV through IF10/IF11."	The modal title and Work ID dropdown are correct. Map applies the selected entities to the specified project and closes the modal. Cancel and X close the modal without changes. The PE-code mapping follows the stated IF10/IF11 transfer flow.	Not Run
+PV US5 – Mark Selected Product Entities as Live	A bid contains one or more selectable product entities whose status can be changed to Live.	"1. Select one or more product entity rows.
+2. Select Mark as Live from the bulk action buttons.
+3. Verify a confirmation prompt is displayed before the action is applied.
+4. Confirm the action.
+5. Verify the affected rows show Live status and the table refreshes.
+6. Verify the Mark as Live path skips PV data transfer and brings the product entities back to OE Persona."	The confirmation prompt appears before the update. On confirmation, selected entities are updated to Live, their status badges reflect the change, and the table refreshes. The Live declaration follows the stated path without PV data transfer and returns the PEs to OE Persona.	Not Run
